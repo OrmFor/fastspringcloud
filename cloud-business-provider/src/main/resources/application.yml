@@ -1,0 +1,42 @@
+base:
+  config:
+    mysql:
+      hostname: 127.0.0.1
+      port: 3306
+
+spring:
+  application:
+    name: cloud-api
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${base.config.mysql.hostname}:${base.config.mysql.port}/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=Hongkong&useSSL=false
+    username: root
+    password: password
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 10
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+  #服务注册中心
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848 #配置Nacos地址
+  #控制台暴露
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'
+
+server:
+  port: 8081
+
+mybatis:
+  type-aliases-package: com.springcloud.fase.fastspringcloud.pojo
+  mapper-locations: classpath*:mybatis/*/*.xml
