@@ -1,2 +1,2 @@
 # fastspringcloud
-springcloudalibaba快速开发矿机
+springcloudalibaba快速开发框架
