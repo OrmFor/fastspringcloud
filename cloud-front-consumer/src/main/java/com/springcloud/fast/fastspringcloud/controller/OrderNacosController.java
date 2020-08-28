@@ -21,9 +21,15 @@ public class OrderNacosController {
     @Value("${service-url.nacos-api-service}")
     private String serverURL;
 
-    @GetMapping(value = "/front/api/nacos/list")
-    public CommonResult paymentInfo() {
+    @GetMapping(value = "/front/api/nacos/admin/list")
+    public CommonResult adminConfigInfo() {
         return restTemplate.getForObject(serverURL + "/admin/wxConfig/list" , CommonResult.class);
+    }
+
+
+    @GetMapping(value = "/front/api/nacos/list")
+    public CommonResult configInfo() {
+        return restTemplate.getForObject(serverURL + "/wxConfig/list" , CommonResult.class);
     }
 
 }

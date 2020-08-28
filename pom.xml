@@ -20,9 +20,12 @@
     <modules>
         <module>cloud-dependency</module>
         <module>cloud-commons</module>
+        <module>cloud-business-gateway</module>
+        <module>cloud-business-gateway1</module>
         <module>cloud-business-provider</module>
         <module>cloud-business-provider8082</module>
         <module>cloud-front-consumer</module>
+        <module>cloud-front-consumer-feign</module>
     </modules>
 
     <properties>

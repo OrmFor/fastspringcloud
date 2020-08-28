@@ -13,5 +13,5 @@ spring:
 #        port: 8719
 
 service-url:
-  nacos-api-service: http://cloud-api
+  nacos-api-service: http://cloud-business-service
   #sentinel-user-service: http://cloudalibaba-sentinel-service

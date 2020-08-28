@@ -18,7 +18,6 @@ import java.nio.charset.Charset;
 
 @SpringBootApplication
 //@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-@Configuration
 @ComponentScan(basePackages = {"com.springcloud.fast.fastspringcloud.*"})
 @MapperScan("com.springcloud.fast.fastspringcloud.dao")
 @EnableTransactionManagement

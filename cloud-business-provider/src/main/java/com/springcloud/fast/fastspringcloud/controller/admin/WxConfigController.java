@@ -1,6 +1,5 @@
 package com.springcloud.fast.fastspringcloud.controller.admin;
 
-import cc.s2m.web.utils.webUtils.util.JSONResultCode;
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.collect.Maps;
 import com.springcloud.fast.fastspringcloud.CommonResult;
@@ -23,6 +22,7 @@ public class WxConfigController extends BaseController {
 
     @Value("${server.port}")
     private String serverPort;
+
     @Autowired
     private IWxConfig wxConfigService;
 
@@ -47,6 +47,7 @@ public class WxConfigController extends BaseController {
         condi.setOrderBy(" id desc");
         List<WxConfig> list = wxConfigService.getList(condi);
         System.out.println("server.port"+serverPort);
+
         return new CommonResult(200,String.valueOf(serverPort),list);
     }
     

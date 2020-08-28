@@ -1,0 +1,33 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: nacos-feign-sentinel-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8889
+#      datasource:
+#        ds1:
+#          nacos:
+#            server-addr: localhost:8848
+#            dataId: cloudalibaba-sentinel-service
+#            groupId: DEFAULT_GROUP
+#            data-type: json
+#            rule-type: flow
+
+service-url:
+  nacos-api-service: http://cloud-business-service
+  #sentinel-user-service: http://cloudalibaba-sentinel-service
+feign:
+  sentinel:
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

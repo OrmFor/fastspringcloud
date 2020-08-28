@@ -3,10 +3,9 @@ base:
     mysql:
       hostname: 127.0.0.1
       port: 3306
-
 spring:
   application:
-    name: cloud-api
+    name: cloud-business-service
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -27,12 +26,16 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848 #配置Nacos地址
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8889
   #控制台暴露
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: '*'
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 server:
   port: 8082

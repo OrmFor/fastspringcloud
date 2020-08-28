@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>cloud-business-provider</artifactId>
+    <packaging>jar</packaging>
 
     <dependencies>
         <dependency>
@@ -39,6 +40,10 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>com.alibaba.spring</groupId>
@@ -53,7 +58,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <!--<optional>true</optional>-->
+            <optional>true</optional>
         </dependency>
 
         <!--数据库相关start-->
