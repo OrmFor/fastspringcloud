@@ -24,17 +24,20 @@ public class OrderFeignController {
         return orderFeignService.list();
     }
 
+    //fallback：失败调用，若本接口出现未知异常，则调用fallback指定的接口。
+    //blockHandler：sentinel定义的失败调用或限制调用，若本次访问被限流或服务降级，则调用blockHandler指定的接口。
     @GetMapping("/rateLimit")
     @SentinelResource(value = "rateLimit",
-            fallback = "fallBack",
-            fallbackClass = CustomerFallback.class,
-            blockHandlerClass = CustomerBlockHandler.class,
-            blockHandler = "handlerException")
+            fallback = "consumerFallBack",
+            fallbackClass = CustomerFallback.class
+//            blockHandlerClass = CustomerBlockHandler.class,
+//            blockHandler = "handlerException"
+          )
     public CommonResult rateLimit() {
         Long time = System.nanoTime();
         CommonResult list = orderFeignService.list();
         Long time2 = System.nanoTime();
-        //int i = 10/0;
+        //int j = 10/0;
         return list;
     }
 }

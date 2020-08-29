@@ -3,7 +3,8 @@ base:
     mysql:
       hostname: 127.0.0.1
       port: 3306
-
+server:
+  port: 9000
 spring:
   application:
     name: cloud-gateway-service
@@ -27,17 +28,15 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848 #配置Nacos地址
+#    sentinel:
+#      transport:
+#        dashboard: localhost:8080
+#        port: 8889
     gateway:
       discovery:
         locator:
           enabled: true
           lower-case-service-id: true
-  #控制台暴露
-  management:
-    endpoints:
-      web:
-        exposure:
-          include: '*'
   redis:
     database: 0
     host: 127.0.0.1
@@ -48,6 +47,9 @@ spring:
         max-idle: 100
         min-idle: 1
     password: foobared
-
-server:
-  port: 9000
+#控制台暴露
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
