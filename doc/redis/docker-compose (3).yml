@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+  redis:
+    container_name: myredis
+    image: redis:6.0.6
+    ports:
+      - 16793:6379
+    command: redis-server --requirepass foobaredqaz123
+    volumes:
+      - ./data:/data 
+      - ./redis.conf:/etc/redis.conf
+    privileged: true
+    environment:
+      - TZ=Asia/Shanghai
+      - LANG=en_US.UTF-8
+    restart: always
